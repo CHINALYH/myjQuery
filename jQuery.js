@@ -164,9 +164,10 @@ function parseHTML ( str ) {
     return arr;
 }
 
-
+//*******************DOM操作******************************
 // 这里的所有方法都是工具方法, 仅仅是对 DOM 方法的扩展
 // 因此所有的返回值应该是 DOM 对象
+//*************************************************
 jQuery.extend({
     append: function ( parentNode, childNode ) {
     },
@@ -290,8 +291,9 @@ jQuery.fn.extend({
     }
 });
 
-
-// 事件操作
+//****************************************
+// 事件操作模块
+//****************************************    
 jQuery.fn.extend({ 
     on: function ( types, func ) {
         return this.each(function () {
@@ -326,8 +328,9 @@ jQuery.each( [
 
 });
 
-    
-// CSS
+//*********************************    
+// CSS样式操作
+//*********************************
 jQuery.fn.extend({
     css: function ( name, value ) {
         if ( value == undefined ) { // 一个参数
@@ -383,8 +386,9 @@ jQuery.fn.extend({
     } 
 });
 
-
+//*****************************
 // 属性操作
+//****************************
 jQuery.fn.extend({
     attr: function ( name, value ) {
         if ( value ) {
