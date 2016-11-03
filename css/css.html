@@ -5,6 +5,62 @@
     <title>Title</title>
 </head>
 <body>
+<!--测试-->
+<div style="width: 30px;height: 20px">
+    哈哈哈
+    <h1></h1>
+    <h2></h2>
+    <p></p>
+    <div>呵呵呵</div>
+</div>
+
+<script src="../jQuery.js"></script>
+<script>
+    /*
+     * css如果是一个参数的话是获取
+     * css如果是一个json对象的话是设置,或者两个参数的话是设置
+     * $('li').css('color')-->一个参数获取
+     * $('li').css('color','red') -->两个参数设置
+     * $('li').css({'color':'red','border':'1px solid'})-->一个对象参数设置
+     *
+     * JS原生的css操作方式:
+     * this.style.color
+     *
+     * */
+    jQuery.fn.extend({
+        css: function (cssName, cssValue) {
+            if (!cssValue) {
+                //只有一个参数或者是json对象的请情况
+                if (typeof cssName === 'string') {
+                    //window.getComputedStyle('某个元素')  获取的是一个CSSStyleDeclaration,是一个对象
+                    //默认返回第一个元素
+                    return this.get(0).style[cssName] || window.getComputedStyle(this.get(0))[cssName];
+                } else {
+                    return this.each(function (i, v) {
+                        //遍历cssName对象
+                        var that = this;
+                        return $.each(cssName, function (key, value) {
+                            return that.style[key] = value;
+                        });
+                    });
+                }
+            } else { //两个参数肯定是设置值
+                this.each(function () {
+                    this.style[cssName] = cssValue;
+                });
+            }
+        }
+    });
+    /*测试*/
+    $('div').css({
+        color: 'blue'
+    });
+    console.log($('div').css('color'));//blue
+
+
+
+</script>
+
 
 </body>
 </html>

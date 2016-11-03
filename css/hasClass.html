@@ -5,6 +5,36 @@
     <title>Title</title>
 </head>
 <body>
+<script src="../jQuery.js"></script>
+<script>
+    jQuery.fn.extend({
+        //A.hasClass(b)->判断jQuery对象A中的每一个元素是否具有属性b;返回值为boolean值
+        //只要
+   /*     hasClass:function(classNameValue){
+            var flag=false;
+           return this.each(function(){
 
+               //获取到类名字符的形式,使用split(' ') 转化为数组
+               if(this.className.split(' ').indexOf(classNameValue) >=0){//代表有这条属性
+                   flag = true;
+               }
+               return flag;
+            });
+        }*/
+
+        hasClass:function(classNameValue){
+            this.toString().some(function(v,i){
+              return   v.className.split(' ').indexOf(classNameValue)>=0;
+            });
+        }
+
+
+
+
+    });
+
+
+
+</script>
 </body>
 </html>

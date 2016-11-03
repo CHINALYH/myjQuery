@@ -1,6 +1,6 @@
 
 # jQuery框架
-## 1.框架的核心结构
+## 1.jQuery核心框架结构
     ```
     function jQuery () {
         return new jQuery.fn.init();
@@ -57,8 +57,8 @@
             this.length = 1;
         }
     }
-
-## 4.appendTo 方法
+## 2.DOM操作
+### 1.appendTo 方法
 
 可以使用的参数
 * DOM 元素
@@ -79,7 +79,7 @@ function appendTo( selector ) {
 }
 ```
 
-## 5.end 方法
+### 2.end 方法
 
 在 jq 中使用 next, parent, appendTo 等方法的时候, 会修改当前对象.
 即 破坏链式编程的结构. 我们现在调用 end 方法可以恢复链, 并且每调用
@@ -95,7 +95,7 @@ function appendTo( selector ) {
 $( 'div' ).next()
 ```
 
-## 6.DOM 其他方法
+### 3.DOM 其他方法
 
 * appendTo
 * append
@@ -128,7 +128,7 @@ in运算符
 构造函数中的this(指的是实例对象)  构造函数中又有一个函数,这个函数中的this
 
 
-## 7.事件操作
+## 3.事件操作
    1. 用户事件
         * 事件名,用户可以注册的事件
         注册点击事件,onclick,事件名就是click,即用户事件
@@ -141,23 +141,19 @@ in运算符
    5. 响应事件
 
 
-## 8.样式操作
+## 4.样式操作
 
-属性操作
-
-
-1. hasClass
-$('div').hasClass('c1')  -->Boolean
-jQuery  只要有一个含有这个类名就是true
-
-
-2. css
-3. class
+1. css
+2. class
     addClass
     removeClass
     hasClass
     toggleClass
-
+```
+ hasClass
+$('div').hasClass('c1')  -->Boolean
+jQuery  只要有一个含有这个类名就是true
+```
 ## class 属性的取值可以是什么形式
 ```
 <div></div>
@@ -180,7 +176,7 @@ jQuery  只要有一个含有这个类名就是true
 }
 ```
 
-## 9.属性操作
+## 5.属性操作
 
 .attr()   添加或获取属性的值     $( '#img' ).attr( 'src', ' ... ' )
 .val()    添加或获取 value 的值
@@ -214,7 +210,7 @@ setAttribute( 'disabled', 'null' )
 DOM.属性名 = true/false
 
 
-## 10.load 事件
+## 6.load 事件
 
 回顾 jq 中的使用方法
 ```
@@ -267,7 +263,7 @@ init: function ( selector ) {
     };
 ```
 
-## 11.插件
+## 7.插件
 
 就是 jq 本身没有这个方法, 获得实现这个功能比较麻烦, 获得根本不能实现某个
 功能. 那么我们写一个 js 文件, 然后通过增加 jq 的方法, 成员属性等工能,
